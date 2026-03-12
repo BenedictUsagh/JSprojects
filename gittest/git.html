@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Flipper</title>
+    <style>
+        button {
+            padding: 20px 50px;
+            border-radius: 5px;
+            border: solid silver 1.5px;
+        }
+
+        #green {
+            background-color: green;
+        }
+        #purple {
+            background-color: purple;
+        }
+        #yellow {
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Colour Flipper</h2>
+    <button id="green">Green</button>
+    <button id="purple">Purple</button>
+    <button id="yellow">Yellow</button>
+    <button id="random">Random</button>
+    <script>
+
+    const body = document.getElementsByTagName("body")[0]
+
+    const setColor = (name) => body.style.backgroundColor = name;
+
+    document.getElementById("green").addEventListener('click', () => setColor("green"));
+    document.getElementById("purple").addEventListener('click', () => setColor("purple"));
+    document.getElementById("yellow").addEventListener('click', () => setColor("yellow"));
+
+    const getColor = () => {
+        const g = Math.floor(Math.random() * 256);
+        const p = Math.floor(Math.random() * 256);
+        const y = Math.floor(Math.random() * 256);
+
+        return `rgb(${g}, ${p}, ${y})`
+    }
+
+    const rcolor = () => body.style.backgroundColor = getColor();
+
+    document.getElementById("random").addEventListener('click', rcolor);
+
+    </script>
+</body>
+</html>
